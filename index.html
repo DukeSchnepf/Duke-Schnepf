@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compassionate Care</title>
+  <!-- Page styles -->
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Google Fonts for typography -->
+  <!--
+    We replace the original Playfair Display and Merriweather fonts with
+    Nunito and Quicksand.  Nunito is a rounded sans‑serif font known
+    for its soft, friendly appearance and excellent readability【260844009432927†L34-L36】.
+    Quicksand shares many of Nunito’s friendly and modern characteristics【260844009432927†L119-L123】.
+    These fonts help convey a caring, approachable tone while still
+    looking clean and contemporary.
+  -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Quicksand:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <!-- Leaflet styles for map -->
+  <!-- The integrity attribute was removed to avoid blocking the resource when the hash
+       provided by the CDN changes.  Chrome will refuse to load a resource with
+       an invalid SRI value. -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+</head>
+<body>
+  <!-- Root element for React application -->
+  <div id="root"></div>
+
+  <!-- React and React‑DOM (UMD builds) -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <!-- PropTypes (peer dependency for some libraries) -->
+  <script src="https://unpkg.com/prop-types@15.8.1/prop-types.js" crossorigin></script>
+  <!-- Leaflet JS library for map support.  The integrity attribute has been removed to
+       prevent hash mismatches from blocking the script. -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Provide a shim so that the `react-parallax` UMD build can find React as
+       `window.react`.  Without this assignment the library will treat the page
+       as a Node environment and fail to initialise. -->
+  <script>
+    window.react = window.React;
+  </script>
+  <!-- React Parallax UMD build -->
+  <script src="https://unpkg.com/react-parallax@3.2.0/lib/index.js"></script>
+  <!-- Main application script -->
+  <script src="app.js"></script>
+</body>
+</html>

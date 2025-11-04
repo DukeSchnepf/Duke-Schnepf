@@ -1,0 +1,676 @@
+/* Global styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  /*
+    Use Nunito and Quicksand for a friendly, modern look.  Nunito’s
+    rounded terminals and balanced proportions give it a soft,
+    approachable appearance with excellent readability【260844009432927†L34-L36】.
+    Quicksand complements Nunito with a similarly friendly and modern
+    feel【260844009432927†L119-L123】.  Provide a sans‑serif fallback.
+  */
+  font-family: 'Nunito', 'Quicksand', sans-serif;
+  line-height: 1.5;
+  color: #333;
+  scroll-behavior: smooth;
+  /* Prevent horizontal scrolling when the navigation drawer pushes the
+     main content.  Without this the page may scroll sideways on
+     smaller devices when the menu is opened. */
+  overflow-x: hidden;
+}
+
+/*
+  The CSS box model treats margins, padding and borders as distinct
+  areas surrounding your content.  By default browsers use
+  `box‑sizing: content-box`, which means the specified width and height
+  apply only to the content box and any padding or border is added on
+  afterwards.  This can cause elements with large padding or borders
+  to overflow their container and break layouts on small screens.  To
+  make layouts easier to reason about and avoid unexpected overflows
+  during responsive resizing, it’s a common practice to switch to
+  `border-box` sizing for all elements【989546696281938†L1340-L1355】.  With
+  `border-box` sizing the declared width and height include the
+  element’s padding and border so the element never grows beyond its
+  allocated space.  We apply the rule to all elements and their
+  pseudo‑elements to ensure consistent behaviour across the site.
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Utility classes */
+.section {
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Hero section styles */
+.hero {
+  min-height: 90vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: #fff;
+}
+.hero .overlay {
+  /* Use a light, semi‑transparent background on the hero overlay to
+     harmonise with the pastel imagery.  The white tint keeps the
+     underlying artwork visible while improving readability. */
+  background: rgba(255, 255, 255, 0.8);
+  padding: 40px;
+  /* Use a larger border radius for a softer look */
+  border-radius: 20px;
+  /* Constrain the panel’s width to leave breathing room on either side
+     of the screen.  Mirror the dimensions of the generic
+     `.parallax-overlay` so that the hero banner aligns neatly with
+     the other sections below.  Without a matching max‑width the hero
+     panel appeared noticeably narrower than the about and services
+     panels, creating an uneven edge on the right as highlighted in
+     the user’s screenshot. */
+  width: 90%;
+  max-width: 1000px;
+  /* Centre the overlay horizontally on all screens */
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  /* Darken the text in the overlay to contrast with the light
+     background. */
+  color: #4b0f75;
+}
+.hero h1 {
+  font-size: 3rem;
+  margin: 0 0 20px;
+  font-family: 'Playfair Display', serif;
+}
+.hero p {
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+/* Tagline under the logo on the hero section.  Increase the font size
+   slightly and adjust spacing to occupy the space previously taken
+   by the main heading. */
+.hero-tagline {
+  /* Increase the tagline size to be comparable with section headings.
+     This helps maintain visual consistency across the page. */
+  font-size: 2rem;
+  margin-top: 10px;
+  margin-bottom: 0;
+  line-height: 1.4;
+}
+
+/* About section */
+.about {
+  background-color: #f7effa;
+}
+.about h2 {
+  color: #4b0f75;
+  margin-bottom: 20px;
+  font-family: 'Playfair Display', serif;
+}
+.about p {
+  max-width: 800px;
+  margin: 0 auto 10px;
+  font-size: 1.1rem;
+}
+
+/* Services section */
+.services {
+  background-color: #ffffff;
+}
+.services h2 {
+  color: #4b0f75;
+  margin-bottom: 20px;
+  font-family: 'Playfair Display', serif;
+}
+.services ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 800px;
+}
+.services li {
+  margin-bottom: 12px;
+  padding-left: 25px;
+  position: relative;
+  font-size: 1.05rem;
+  text-align: left;
+}
+.services li::before {
+  content: "\2022";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #a353c5;
+  font-weight: bold;
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+/* Map section */
+.map-section {
+  background-color: #f7effa;
+}
+.map-section h2 {
+  color: #4b0f75;
+  margin-bottom: 20px;
+  font-family: 'Playfair Display', serif;
+}
+
+/* Description of home office locations underneath the map */
+.map-offices {
+  margin-top: 15px;
+  font-size: 1.1rem;
+  color: #4b0f75;
+}
+.map-container {
+  /* Let the map fill the entire width of its parent overlay.  The
+     map no longer has a maximum width so it centres neatly within
+     the “Areas We Serve” panel. */
+  width: 100%;
+  height: 450px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Testimonials section */
+.testimonials {
+  background-color: #ffffff;
+}
+.testimonials h2 {
+  color: #4b0f75;
+  margin-bottom: 30px;
+  font-family: 'Playfair Display', serif;
+}
+.testimonial-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 1000px;
+}
+.testimonial-card {
+  background-color: #f7effa;
+  border-radius: 20px;
+  padding: 20px;
+  width: 280px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.testimonial-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+.testimonial-card p {
+  font-size: 1rem;
+  margin: 0 0 10px;
+}
+.testimonial-card span {
+  font-weight: bold;
+  color: #4b0f75;
+}
+
+/* Contact section */
+.contact {
+  background-color: #f7effa;
+}
+.contact h2 {
+  color: #4b0f75;
+  margin-bottom: 20px;
+  font-family: 'Playfair Display', serif;
+}
+
+/* Apply Playfair Display to primary headings on hero section */
+.hero p {
+  font-family: 'Merriweather', serif;
+}
+
+/* Logo inside hero */
+.hero-logo {
+  /* Increase the logo size for better visibility.  The height will scale
+     proportionally to preserve the aspect ratio.  This size aligns
+     the hero logo more closely with the text below it. */
+  width: 350px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* Scroll‑spy navigation dots */
+.scroll-dots {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 1000;
+}
+.scroll-dots a {
+  text-decoration: none;
+}
+.scroll-dots .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #bbb;
+  transition: background-color 0.3s;
+  display: block;
+}
+.scroll-dots a.active .dot,
+.scroll-dots a:hover .dot {
+  background-color: #4b0f75;
+}
+.contact .contact-info {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+.contact .contact-info a {
+  color: #4b0f75;
+  text-decoration: none;
+}
+.contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 500px;
+  /* Centre form controls on smaller screens */
+  align-items: center;
+}
+.contact input,
+  .contact textarea {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  /* Slightly rounder corners on form controls */
+  border-radius: 10px;
+  font-size: 1rem;
+  /* Expand inputs to fill the width of the form container. */
+  width: 100%;
+}
+.contact button {
+  background-color: #4b0f75;
+  color: white;
+  padding: 12px;
+  border: none;
+  /* Slightly rounder corners on the submit button */
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+.contact button:hover {
+  background-color: #7a3ea0;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .testimonial-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/*
+  Parallax background support
+  ---------------------------
+  Each section of the site can have a fixed background that moves
+  more slowly than the foreground content to create an illusion of
+  depth.  This effect is achieved by fixing the background relative
+  to the viewport and rotating through a set of pre‑selected images.
+  Parallax scrolling gives the page a dynamic and immersive feel
+  without impeding normal scrolling【815458559099720†L115-L157】.
+*/
+.parallax-section {
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  /* Rotate through several images over time.  Adjust the duration
+     for slower or faster transitions. */
+  animation: rotateBackground 40s infinite ease-in-out;
+}
+
+@keyframes rotateBackground {
+  0% {
+    background-image: url('new_bg1.png');
+  }
+  33% {
+    background-image: url('new_bg2.png');
+  }
+  66% {
+    background-image: url('new_bg3.png');
+  }
+  100% {
+    background-image: url('new_bg1.png');
+  }
+}
+
+/*
+  Overlay style for improved readability on parallax backgrounds.
+  Use this class on inner containers within a section to provide a
+  semi‑transparent panel behind text.  The overlay ensures content
+  remains legible over the rotating backgrounds.
+*/
+.parallax-overlay {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 40px;
+  /* Round the corners more generously to soften the box */
+  border-radius: 20px;
+  /* Constrain panel width to provide consistent margins on either
+     side.  Without a declared width the panel may span the entire
+     viewport, leaving no visual margin and giving the impression that
+     it isn’t centred. */
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Ensure that overlay containers centre themselves on mobile and use
+   narrower padding to avoid appearing off‑centre.  On small screens the
+   sliding menu should expand to the full width for easier tapping. */
+@media (max-width: 768px) {
+  .overlay,
+  .parallax-overlay {
+    /* On small screens let the panels span the majority of the viewport
+       and centre them automatically.  Using 95% width prevents the
+       background from peeking out on either side. */
+    width: 95%;
+    max-width: none;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-logo {
+    /* Use a moderately large logo on mobile to maintain prominence */
+    width: 250px;
+  }
+  .side-menu.open {
+    width: 100%;
+  }
+
+  /* Disable fixed backgrounds on mobile devices.  The parallax effect
+     can cause flickering and position issues on mobile browsers and
+     doesn’t always work as intended【644438730937495†L803-L876】.  When
+     background‑attachment is set to scroll the background moves at the
+     same speed as the content, preserving performance and keeping
+     overlays centred. */
+  .parallax-section {
+    background-attachment: scroll;
+  }
+}
+
+/*
+  Hamburger menu styles
+  ----------------------
+  A hamburger icon that toggles into an X when the menu is open
+  provides a clear visual indicator of the menu state.  When the
+  menu is open, the side panel slides out from the left.  The
+  transformation of the three lines into a cross indicates whether
+  the navigation is expanded or collapsed【995805708329959†L93-L96】.
+*/
+.hamburger {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 2000;
+  width: 30px;
+  height: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  /* Improve visibility by adding a subtle background, rounded corners
+     and a soft shadow.  This ensures the icon stands out against
+     busy backgrounds without overwhelming the design. */
+  padding: 6px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.hamburger-line {
+  width: 100%;
+  height: 3px;
+  background-color: #4b0f75;
+  border-radius: 3px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Provide a slight change in tone and shadow on hover for the hamburger
+   icon.  This feedback reinforces the clickable nature of the
+   element. */
+.hamburger:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.35);
+}
+.hamburger.active .line1 {
+  transform: translateY(9px) rotate(45deg);
+}
+.hamburger.active .line2 {
+  opacity: 0;
+}
+.hamburger.active .line3 {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Side navigation menu */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 0;
+  /* Use a semi‑transparent white background so that the underlying
+     parallax imagery subtly shines through.  A lower opacity (90%)
+     provides contrast while avoiding the stark “blank white” screen
+     effect the user experienced. */
+  background-color: rgba(255, 255, 255, 0.8);
+  /* Apply a light blur to the backdrop to create a frosted‑glass
+     appearance.  This effect maintains legibility of menu items while
+     adding depth and polish. */
+  backdrop-filter: blur(4px);
+  overflow: hidden;
+  z-index: 1500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Centre the navigation links vertically.  The contact block will push
+     itself to the bottom via margin-top: auto. */
+  justify-content: center;
+  transition: width 0.6s ease;
+  text-align: center;
+}
+.side-menu.open {
+  /* When open the menu covers the full viewport width. */
+  width: 100%;
+}
+.side-menu a {
+  font-size: 1.5rem;
+  margin: 15px 0;
+  color: #4b0f75;
+  text-decoration: none;
+  transition: color 0.6s ease;
+}
+.side-menu a:hover {
+  color: #7a3ea0;
+}
+
+/* Close button inside the side menu
+   --------------------------------
+   The explicit close control sits in the top‑right corner of the
+   drawer.  It uses a simple × glyph instead of an image to reduce
+   overhead and inherits the same colour scheme as the hamburger
+   icon.  A transparent background and no border allow the button
+   to blend seamlessly into the frosted panel. */
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #4b0f75;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 1600;
+  padding: 0;
+  line-height: 1;
+}
+.close-button:hover {
+  color: #7a3ea0;
+}
+
+/* Contact information within the side menu.  This area appears at
+   the bottom of the menu to provide quick access to phone numbers
+   and email without navigating to the contact section. */
+.menu-contact {
+  margin-top: auto;
+  padding: 20px 10px;
+  border-top: 1px solid #e4c9ee;
+  width: 90%;
+  font-size: 1.1rem;
+  color: #4b0f75;
+}
+.menu-contact a {
+  color: #4b0f75;
+  text-decoration: none;
+  display: block;
+  margin: 5px 0;
+}
+.menu-contact a:hover {
+  color: #7a3ea0;
+}
+
+/* When the menu is open we push the main application horizontally
+   offscreen so that the drawer occupies the entire viewport.  The
+   #root element is animated via a CSS transform. */
+#root {
+  transition: transform 0.5s ease;
+}
+body.menu-open #root {
+  /* Do not translate the main application offscreen when the menu opens.
+     The side menu now overlays the page instead of pushing the
+     content aside.  Leaving #root in place prevents the view from
+     appearing blank white and ensures a smooth overlay effect. */
+  transform: none;
+}
+
+/* Pastel heart animation for the sliding menu.  A container holds
+   several absolutely positioned hearts that drift down the screen. */
+.heart-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  /* Place the hearts behind the navigation items but above the
+     backdrop so that they remain visible.  A non‑negative z‑index
+     keeps them within the stacking context of the menu rather than
+     behind the body. */
+  z-index: 0;
+}
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: rgba(226, 171, 234, 0.6);
+  transform: rotate(45deg);
+  /* Use the custom heartRise animation defined below instead of the
+     original downward fall.  Hearts now float gracefully upward from
+     the bottom of the drawer and fade away, creating a gentle,
+     uplifting effect as requested. */
+  animation: heartRise 12s linear infinite;
+}
+.heart::before,
+.heart::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: inherit;
+  border-radius: 50%;
+}
+.heart::before {
+  top: -10px;
+  left: 0;
+}
+.heart::after {
+  left: 10px;
+  top: 0;
+}
+@keyframes heartFall {
+  0% {
+    top: -5%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    top: 105%;
+    opacity: 0;
+  }
+}
+
+/*
+  Hearts rising animation
+  ----------------------
+  This keyframe animates hearts that originate just below the bottom
+  edge of the menu, float upward through the container and then fade
+  out as they exit the top.  The initial and final opacity values
+  ensure a smooth fade‑in and fade‑out.  The animation duration
+  matches that specified on the `.heart` rule above.
+*/
+@keyframes heartRise {
+  0% {
+    top: 100%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    top: -10%;
+    opacity: 0;
+  }
+}
+/* Position hearts at different horizontal positions and start delays */
+.heart:nth-child(1) {
+  left: 15%;
+  animation-delay: 0s;
+}
+.heart:nth-child(2) {
+  left: 35%;
+  animation-delay: 2s;
+}
+.heart:nth-child(3) {
+  left: 55%;
+  animation-delay: 4s;
+}
+.heart:nth-child(4) {
+  left: 75%;
+  animation-delay: 6s;
+}
+.heart:nth-child(5) {
+  left: 90%;
+  animation-delay: 8s;
+}
